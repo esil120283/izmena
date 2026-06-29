@@ -24,6 +24,20 @@ if (YM_ID) { ym(YM_ID, "init", {clickmap:true,trackLinks:true,accurateTrackBounc
 <noscript><div><img src="https://mc.yandex.ru/watch/109983201" style="position:absolute;left:-9999px;" alt=""/></div></noscript>
 <!-- ============ /Yandex.Metrica ============ -->
 
+<!-- ============ Meta Pixel ============ -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','271762323995733');
+fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=271762323995733&ev=PageView&noscript=1"/></noscript>
+<!-- ============ /Meta Pixel ============ -->
+
 <style>
 :root{
   color-scheme: light;            /* запрет авто-затемнения на телефонах */
@@ -484,6 +498,7 @@ h2{font-size:40px;line-height:1.16;font-weight:700;letter-spacing:0;color:#1E180
 
   function handleBtn(b, ev){
     goal(b.getAttribute('data-goal'));
+    if (b.getAttribute('data-goal') === 'cta3_zapisatsya' && window.fbq){ fbq('track','Lead'); }
     var target = b.getAttribute('data-scroll');
     if (target){
       if (ev) ev.preventDefault();
